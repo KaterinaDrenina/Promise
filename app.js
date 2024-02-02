@@ -19,8 +19,11 @@ function searchPost() {
           <h2>Post ID: ${post.id}</h2>
           <h3>Title: ${post.title}</h3>
           <p>${post.body}</p>
-          <button onclick="getComments(${post.id})">Get Comments</button>
+          <button id="getCommentsButton">Get Comments</button>
         `;
+
+        const getCommentsButton = document.getElementById('getCommentsButton');
+        getCommentsButton.addEventListener('click', () => getComments(post.id));
       })
       .catch(error => {
         alert(`Error: ${error.message}`);
